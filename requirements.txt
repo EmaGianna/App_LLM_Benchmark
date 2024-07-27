@@ -4,3 +4,5 @@ streamlit
 loguru
 texstat
 langdetect
+nltk
+textblob

@@ -5,11 +5,10 @@ import pandas as pd
 from loguru import logger
 
 from lib_llm_benchmark import staticals_functions
-from lib_llm_benchmark import utils
+# from lib_llm_benchmark import utils
 
 
 if __name__ == '__main__':
-
 
     begin_time = datetime.datetime.now()
 
@@ -19,8 +18,7 @@ if __name__ == '__main__':
     st.sidebar.header("Datos Prompts")
     st.write("# Datos Prompts")
     
-    #path = "/mnt/e/trabajo/sysberisso/GIT_REPOS/App_LLM_Benchmark/db"
-    path = "./db"
+    path = "./llm_benchmark_app/db"
     con = sqlite3.connect(f'{path}/prompt_sqlite.db')
     # consulto los objetos de la BBDD para obtener los nombres de los modelos gemma_7b y llama2
     df_view = pd.read_sql_query("SELECT name FROM sqlite_master where type='view' and name not like 'extra_%' limit 2" , con)
@@ -61,7 +59,7 @@ if __name__ == '__main__':
 
     st.markdown(
         """
-        # Escribir en formato markdown
+        ## Respuestas de los LLM y las estadisticas lingüisticas de las mismas
 
         """
     )
