@@ -44,7 +44,7 @@ if __name__ == '__main__':
         # ✨Benchmark de LLMs  
         
         En la presente web, podra encontrar un benchmarking de LLMs (Large Lenguage Model) open source, que se ejecuten 
-        en la herramienta [Ollama](https://ollama.com/library) desde la perspectiva de indicadores cualitativos lingüisticos.
+        en la herramienta [Ollama](https://ollama.com/library) desde la perspectiva de indicadores cuantitativos lingüisticos.
         
         
         ## ✨LLM
