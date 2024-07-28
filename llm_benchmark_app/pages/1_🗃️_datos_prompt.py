@@ -15,8 +15,8 @@ if __name__ == '__main__':
 ##################################################
 
     st.set_page_config(page_title="Datos Prompts",page_icon="🗃️",)
-    st.sidebar.header("Datos Prompts")
-    st.write("# Datos Prompts")
+    st.sidebar.header("🗃️ Datos Prompts")
+    st.write("# 🗃️ Datos Prompts")
  
     with st.sidebar:
         st.sidebar.success("Selecciones la sección a Visitar")
@@ -31,7 +31,6 @@ if __name__ == '__main__':
     # consulto los objetos de la BBDD para obtener los nombres de los modelos gemma_7b y llama2
     df_view = pd.read_sql_query("SELECT name FROM sqlite_master where type='view' and name not like 'extra_%' limit 2" , con)
     llm_df = pd.DataFrame()
-
 
     tab1, tab2, tab3= st.tabs(["Listado de Prompts"
                         , "Respuestas de los LLM"
@@ -63,8 +62,6 @@ if __name__ == '__main__':
 
           llm_df = pd.concat([llm_df, staticals_functions.get_df_linguistics_statistics_values(df_prompts, name_tbl)])
  
-    llm_df = llm_df.reset_index(drop=True)  
-    st.session_state["key"] = llm_df
     with tab3:          
 
         llm_df.columns = ['id_promtp', 'respuesta_llm', 'modelo llm', 'idioma', 'tiempo de lectura','cantidad de oraciones','cantidad de caracteres','cantidad de letras'
@@ -77,7 +74,9 @@ if __name__ == '__main__':
                         como columnas "agregadas".               
             """)
         st.dataframe(llm_df)
-       
+
+    llm_df = llm_df.reset_index(drop=True)  
+    st.session_state["key"] = llm_df      
 ###################################################
     end_time = datetime.datetime.now()
     logger.debug(f'tiempo de ejecucion:{str(end_time - begin_time)}')

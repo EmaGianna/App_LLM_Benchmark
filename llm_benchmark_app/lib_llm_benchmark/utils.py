@@ -1,4 +1,6 @@
-#lista a diccionario
+import plotly.graph_objects as go
+import streamlit as st
+
 def list_to_dict(in_list):
     """
     The function `list_to_dict` converts a list into a dictionary where the index of each element in the
@@ -32,26 +34,23 @@ def  return_numeric_df(df):
     #            ,'cantidad de palabras','densidad lexica','riqueza lexica']
     return df
 
-def create_scatter_graph(df_llama, df_gemma, column, path_save_html):
+def create_scatter_graph(df_llama, df_gemma, column):
     """
-    The function `create_scatter_graph` generates a scatter graph comparing data from two DataFrames and
-    saves it as an HTML file.
+    The function `create_scatter_graph` generates a scatter graph comparing data from two DataFrames for
+    a specified column.
     
-    :param df_llama: `df_llama` is a pandas DataFrame containing data for the Llama model. It likely
-    includes columns such as 'id_prompt' and the specified `column` for comparison
+    :param df_llama: The `df_llama` parameter is a DataFrame containing data related to the Llama model.
+    It likely includes columns such as 'id_prompt' and the specified `column` for comparison in the
+    scatter graph. The function `create_scatter_graph` uses this DataFrame to plot a scatter graph
+    comparing the
     :param df_gemma: The `df_gemma` parameter is a DataFrame containing data related to Gemma. It is
-    used in the function `create_scatter_graph` to plot a scatter graph comparing a specific column
-    between two datasets - one for Llama and one for Gemma. The function creates a scatter plot with
-    lines
-    :param column: The `column` parameter in the `create_scatter_graph` function is used to specify
-    which column from the dataframes `df_llama` and `df_gemma` you want to compare in the scatter graph.
-    This column will be plotted on the y-axis, while the 'ID Prompt'
-    :param path_save_html: The `path_save_html` parameter in the `create_scatter_graph` function is the
-    file path where you want to save the HTML file of the scatter graph that will be generated. You can
-    specify the directory where you want to save the HTML file along with the desired filename. For
-    example, you
+    used in the `create_scatter_graph` function to plot a scatter graph comparing a specific column
+    between Gemma and Llama
+    :param column: The `create_scatter_graph` function you provided seems to be creating a scatter graph
+    using Plotly to compare data between two dataframes (`df_llama` and `df_gemma`) based on a specified
+    column
     """
-    import plotly.graph_objects as go
+
     # Crear la figura
     fig = go.Figure()
 
@@ -74,8 +73,5 @@ def create_scatter_graph(df_llama, df_gemma, column, path_save_html):
             dtick=1             # Distancia entre ticks igual a 1
         )
     )
-
     # Mostrar el gráfico
-    fig.show()
-    # Guardar grafico en html
-    fig.write_html(f"{path_save_html}{column.replace(' ','_')}.html")
+    st.plotly_chart(fig)
