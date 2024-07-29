@@ -14,6 +14,14 @@ if __name__ == '__main__':
     st.set_page_config(page_title="Conclusiones",page_icon="📝",)
     st.sidebar.header("📝 Conclusiones")
     st.write("# 📝 Conclusiones")
+    
+    with st.sidebar:
+        st.sidebar.success("Selecciones la sección a Visitar")
+        st.write('Esta app forma parte de la tesina final de la licenciatura en ciencia de Datos')
+        st.markdown("""
+                    Proyecto desarrollado por:
+                    * [Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
+                    """) 
 ##################################################
 
     st.markdown("""

@@ -21,10 +21,6 @@ import sqlite3
 import pandas as pd 
 from loguru import logger
 
-#from lib_llm_benchmark import staticals_functions
-#from lib_llm_benchmark import utils
-
-
 if __name__ == '__main__':
 
 
@@ -58,8 +54,6 @@ if __name__ == '__main__':
                 en modelos con mayor consumo computacional
                 """             
               )
-
-
 
     tab_con_ini, tab_fram_llm, tab_indicadores = st.tabs(["Consideraciones Iniciales"
                         , "Framework de Benchmark LLM"
