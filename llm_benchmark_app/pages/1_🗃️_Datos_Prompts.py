@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 import sqlite3
 import pandas as pd 
-from loguru import logger
+
 
 from lib_llm_benchmark import staticals_functions
 # from lib_llm_benchmark import utils
@@ -53,7 +53,6 @@ if __name__ == '__main__':
                 """)    
     
         for index, row in df_view.iterrows():
-          #logger.debug(f"tbl_name: {row['name']}, index {index}")
           name_tbl = df_view.iloc[index]['name']
           sql_query = f"SELECT id_promtp, answers FROM {name_tbl}" 
           df_prompts = pd.read_sql_query(sql_query, con)
@@ -80,4 +79,3 @@ if __name__ == '__main__':
     st.session_state["key"] = llm_df      
 ###################################################
     end_time = datetime.datetime.now()
-    logger.debug(f'tiempo de ejecucion:{str(end_time - begin_time)}')
