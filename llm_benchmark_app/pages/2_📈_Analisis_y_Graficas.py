@@ -156,3 +156,4 @@ if __name__ == '__main__':
     ##################################################
     end_time = datetime.datetime.now()
     logger.debug(f'tiempo de ejecucion:{str(end_time - begin_time)}')
+    
