@@ -1,24 +1,6 @@
-# emojis: https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
-#          https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md
-          
-# markdown: https://github.github.com/gfm/#example-581
-#           https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
-#           https://github.com/ipython/ipython/wiki/Cheatsheet
-
-
-## Streamlit DOC
-#https://docs.streamlit.io/
-
-
-##cafecito
-#https://www.google.com/search?q=cafecito&oq=cafecit&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQRRg5MgcIAhAAGIAEMg0IAxAAGIMBGLEDGIAEMgcIBBAAGIAEMgYIBRBFGD0yBggGEEUYPDIGCAcQRRg80gEIMTgxMGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8
-## buy me a coffe
-#https://www.google.com/search?client=firefox-b-d&q=buy+me+a+coffe
-
 import streamlit as st
 import datetime
-import sqlite3
-import pandas as pd 
+from lib_llm_benchmark import st_functions 
 
 if __name__ == '__main__':
 
@@ -35,10 +17,12 @@ if __name__ == '__main__':
         st.sidebar.success("Selecciones la sección a Visitar")
         st.write('Esta app forma parte de la tesina final de la licenciatura en ciencia de Datos')
         st.markdown("""
-                    Proyecto desarrollado por:
-                    * [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
+                    Proyecto desarrollado por:  
+                    [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
                     """)
-
+        icon_size = 20
+        st_functions.st_button('linkedin', 'https://www.linkedin.com/in/emanuel-giannattasio-76744911/', 'Follow me on LinkedIn', icon_size)
+        
     st.markdown(
                 """
                 # ✨Benchmark de LLMs  
@@ -144,8 +128,5 @@ if __name__ == '__main__':
             
             """
         )
-        
-        
-        
 ###################################################
     end_time = datetime.datetime.now()

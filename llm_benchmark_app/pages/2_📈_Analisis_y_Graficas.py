@@ -1,13 +1,8 @@
-#https://python-graph-gallery.com/
-
 import streamlit as st
 import datetime
-import sqlite3
-import pandas as pd 
 import plotly.express as px
-
 from lib_llm_benchmark import utils
-
+from lib_llm_benchmark import st_functions 
 
 if __name__ == '__main__':
 
@@ -22,11 +17,11 @@ if __name__ == '__main__':
         st.sidebar.success("Selecciones la sección a Visitar")
         st.write('Esta app forma parte de la tesina final de la licenciatura en ciencia de Datos')
         st.markdown("""
-                    Proyecto desarrollado por:
-                    * [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
-                    """) 
-    
-    
+                    Proyecto desarrollado por:  
+                    [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
+                    """)
+        icon_size = 20
+        st_functions.st_button('linkedin', 'https://www.linkedin.com/in/emanuel-giannattasio-76744911/', 'Follow me on LinkedIn', icon_size)
     
     st.markdown("""
                  En la presente seccion se presentan una serie de graficas que, muestran de modo 
