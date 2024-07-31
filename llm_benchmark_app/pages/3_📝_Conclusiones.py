@@ -20,7 +20,7 @@ if __name__ == '__main__':
         st.write('Esta app forma parte de la tesina final de la licenciatura en ciencia de Datos')
         st.markdown("""
                     Proyecto desarrollado por:
-                    * [Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
+                    * [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
                     """) 
 ##################################################
 
