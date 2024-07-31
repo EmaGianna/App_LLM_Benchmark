@@ -23,8 +23,15 @@ if __name__ == '__main__':
         st.write('Esta app forma parte de la tesina final de la licenciatura en ciencia de Datos')
         st.markdown("""
                     Proyecto desarrollado por:
-                    * [Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
+                    * [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
                     """) 
+    
+    
+    
+    st.markdown("""
+                 En la presente seccion se presentan una serie de graficas que, muestran de modo 
+                 visual el analisis que se realizo con los datos obtenidos.
+                 """) 
     
     #########obtengo los datos para trabajalos en las graficas, analisis y rpts#####################
     llm_df = st.session_state["key"]
@@ -43,7 +50,7 @@ if __name__ == '__main__':
     #############Graficas Lineas#######################################
     
     with tab_comp_graph:
-        st.markdown('## **Graficas**\n')
+        st.markdown('## **Graficas Comparativas**\n')
         #Creo copias para poder trabajar sobre estas y no afectar a los subsets originales
         df_gemma= df_llm_gemma.copy()
         df_llama= df_llm_llama.copy()
@@ -56,6 +63,7 @@ if __name__ == '__main__':
     ####### Graficos de Sentimientos ###########
 
     with tab_sentiment_graph:
+        st.markdown('## **Graficas Del Analisis de Sentimientos**\n')
         df_char_gemma = df_gemma.select_dtypes(include=['object'])
         df_char_llama = df_llama.select_dtypes(include=['object'])
     
@@ -98,7 +106,9 @@ if __name__ == '__main__':
         st.plotly_chart(fig)
 
     with tab_total_graph:
-        ####### Graficos de Otros ###########
+        
+        st.markdown('## **Graficas De Sumarizacion**\n')
+        
         ## treemap
         # Crear una columna para el nombre de cada métrica
         numeric_cols = ['tiempo de lectura','cantidad de oraciones','cantidad de caracteres','cantidad de letras'
@@ -142,15 +152,35 @@ if __name__ == '__main__':
                         , path=[px.Constant('llm'),'modelo llm','metric_name']
                         , values='metric_value'
                         , color='metric_value'
-                        ,color_continuous_scale= 'Greens'
-                        , hover_data=['modelo llm'])
+                        , color_continuous_scale= 'Greens'
+                        , hover_data=['modelo llm']
+                        ,title='Icicle de valores numéricos por variable y modelo LLM')
         # Mostrar el gráfico
         st.plotly_chart(fig_icicle)
 
 
     #############RPT#######################################
     with tap_rpt_comparison:
+
+
+        st.markdown("""      
+                    Se realizó la comparación de los valores promedios de los indicadores obtenidos cuantitativos lingüísticos; 
+                    vale mencionar que valores menores en cada caso, son mejores; por ejemplo, en el caso de tiempo de lectura, 
+                    que es el primer valor comparado, se visualiza que es mejor en el LLM Gemma por sobre Llama2, 
+                    lo que en ese ítem lo hace mejor; teniendo en cuenta lo antes dicho, generamos el siguiente reporte.
+                         
+                    """
+                    )        
+        st.divider() 
         utils.print_rpt_comparison(df_llm_gemma, df_llm_llama)
+        st.divider() 
+        st.markdown("""
+                    Podemos observar que en los indicadores obtenemos que, de un total de 11 
+                    indicadores los valores promedios de los indicadores de Gemma son mejores en 8 de ellos, 
+                    mientras que solo 3 son mejores en el caso de Llama. Si esto lo expresáramos porcentualmente 
+                    podríamos decir que Gemma es mejor en el 73% de los indicadores, por sobre un 27% de los indicadores de Llama2
+                    """
+                    )
 
     ##################################################
     end_time = datetime.datetime.now()

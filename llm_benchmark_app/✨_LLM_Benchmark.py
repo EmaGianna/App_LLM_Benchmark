@@ -37,6 +37,7 @@ if __name__ == '__main__':
         st.markdown("""
                     Proyecto desarrollado por:
                     * [📧 Emanuel Giannattasio](mailto:emanuel.giannattasio@gmail.com)
+                    ![Benjamin Bannekat](./llm_benchmark_app/img/linkedin-icon.png)
                     """)
 
 
